@@ -1,25 +1,36 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
+import { Container, AppBar, Toolbar, Typography, Button, Box } from '@mui/material';
+import ShortenerForm from './components/ShortenerForm';
+import ShortenedLinks from './components/ShortenedLinks';
+import Statistics from './components/Statistics';
 import './App.css';
 
-function App() {
+
+const App = () => {
+  const [links, setLinks] = useState([]);
+  const [showStats, setShowStats] = useState(false);
+
+  const handleCreate = (newLinks) => {
+    setLinks([...links, ...newLinks]);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Container>
+      <AppBar position="sticky">
+        <Toolbar>
+          <Typography variant="h6">React URL Shortener</Typography>
+          <Box sx={{ flexGrow: 1 }} />
+          <Button color="inherit" onClick={() => setShowStats(!showStats)}>
+            {showStats ? 'Shorten URLs' : 'View Statistics'}
+          </Button>
+        </Toolbar>
+      </AppBar>
+      <Box mt={3}>
+        {showStats ? <Statistics /> : <ShortenerForm onCreate={handleCreate} />}
+        {!showStats && <ShortenedLinks links={links} />}
+      </Box>
+    </Container>
   );
-}
+};
 
 export default App;

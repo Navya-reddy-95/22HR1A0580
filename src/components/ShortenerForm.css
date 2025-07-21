@@ -1,0 +1,51 @@
+.shortener-container {
+    max-width: 900px;
+    margin: auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+  }
+  
+  .url-form {
+    display: grid;
+    gap: 20px;
+  }
+  
+  .url-block {
+    border: 1px solid #ccc;
+    padding: 15px;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+  }
+  
+  .input-row {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+  }
+  
+  input {
+    padding: 10px;
+    flex: 1;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .submit-button {
+    padding: 10px 20px;
+    background-color: rebeccapurple;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-weight: bold;
+    cursor: pointer;
+    width: fit-content;
+    margin: 20px auto;
+  }
+  
+  .submit-button:hover {
+    background-color: #0d47a1;
+  }
+  
+  .shortened-urls {
+    margin-top: 30px;
+  }
